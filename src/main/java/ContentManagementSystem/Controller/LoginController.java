@@ -7,9 +7,8 @@ import io.jsonwebtoken.impl.crypto.MacProvider;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.Key;
-import jcms.model.User;
-import jcms.service.UserService;
-import jcms.service.UserServiceImplementation;
+import ContentManagementSystem.model.User;
+import ContentManagementSystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -32,7 +31,7 @@ public class LoginController {
     // TODO: move this key elsewhere
     private Key key = MacProvider.generateKey();
 
-    private String jwtCookieName = "jCMSCookie";
+    private String jwtCookieName = "ContentManagementSystemCookie";
     @Autowired
     private UserService userService;
 
@@ -167,7 +166,7 @@ public class LoginController {
      * JSON Web Token credentials
      *
      * @param cookies An array of cookies
-     * @param jwtCookieName The name of the jCMS cookie that stores the encoded JSON Web token credentials
+     * @param jwtCookieName The name of the ContentManagementSystem cookie that stores the encoded JSON Web token credentials
      * @param subjectToMatch The JSON Web token subject to match
      * @returns a boolean indicating whether or not there is a cookie that matches the correct
      *  JSON Web Token credentials
